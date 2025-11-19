@@ -1,0 +1,113 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'inicio' %}">
+            <i class="bi bi-magic"></i> 
+            <strong>Sistema Tienda de Magia</strong>
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <!-- Inicio -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'inicio' %}">
+                        <i class="bi bi-house"></i> Inicio
+                    </a>
+                </li>
+                
+                <!-- Clientes -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-people"></i> Clientes
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'agregar_cliente' %}">
+                            <i class="bi bi-person-plus"></i> Agregar Cliente
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_clientes' %}">
+                            <i class="bi bi-list-ul"></i> Ver Clientes
+                        </a></li>
+                    </ul>
+                </li>
+                
+                <!-- Empleados -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-person-badge"></i> Empleados
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'agregar_empleado' %}">
+                            <i class="bi bi-person-plus"></i> Agregar Empleado
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_empleados' %}">
+                            <i class="bi bi-list-ul"></i> Ver Empleados
+                        </a></li>
+                    </ul>
+                </li>
+                
+                <!-- Productos -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-box-seam"></i> Productos
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'agregar_producto' %}">
+                            <i class="bi bi-plus-circle"></i> Agregar Producto
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_productos' %}">
+                            <i class="bi bi-list-ul"></i> Ver Productos
+                        </a></li>
+                    </ul>
+                </li>
+                
+                <!-- Proveedores -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-truck"></i> Proveedores
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'agregar_proveedor' %}">
+                            <i class="bi bi-plus-circle"></i> Agregar Proveedor
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_proveedores' %}">
+                            <i class="bi bi-list-ul"></i> Ver Proveedores
+                        </a></li>
+                    </ul>
+                </li>
+                
+                <!-- Órdenes -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-receipt"></i> Órdenes
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'agregar_orden' %}">
+                            <i class="bi bi-plus-circle"></i> Agregar Orden
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_ordenes' %}">
+                            <i class="bi bi-list-ul"></i> Ver Órdenes
+                        </a></li>
+                    </ul>
+                </li>
+
+                <!-- DETALLES DE ORDEN (NUEVO) -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="bi bi-list-check"></i> Detalles Orden
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'agregar_detalle_orden' %}">
+                            <i class="bi bi-plus-circle"></i> Agregar Detalle
+                        </a></li>
+                        <li><a class="dropdown-item" href="{% url 'ver_detalles_orden' %}">
+                            <i class="bi bi-list-ul"></i> Ver Detalles
+                        </a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

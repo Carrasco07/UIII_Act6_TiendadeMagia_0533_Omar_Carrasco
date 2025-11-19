@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Magia - Inicio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 0;
+            margin-bottom: 50px;
+        }
+        .card-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .text-purple {
+            color: #6f42c1 !important;
+        }
+        .btn-purple {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #5a32a3;
+            border-color: #5a32a3;
+            color: white;
+        }
+        .btn-outline-purple {
+            color: #6f42c1;
+            border-color: #6f42c1;
+        }
+        .btn-outline-purple:hover {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+            color: white;
+        }
+        .border-purple {
+            border-color: #6f42c1 !important;
+        }
+    </style>
+</head>
+<body>
+    {% include 'app_TiendadeMagia/navbar.html' %}
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h1 class="display-4 fw-bold">✨ Tienda de Magia</h1>
+                    <p class="lead">Sistema completo de administración para tu negocio mágico</p>
+                    <p>Gestiona clientes, productos, empleados, proveedores y ventas en un solo lugar.</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    {% load static %}
+                    <img src="{% static 'app_TiendadeMagia/images/magia.jpg' %}" 
+                         alt="Tienda de Magia" 
+                         class="img-fluid rounded shadow" 
+                         style="max-height: 300px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulos del Sistema -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="display-5 fw-bold text-primary">Módulos del Sistema</h2>
+                <p class="lead">Selecciona un módulo para comenzar a gestionar</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Clientes -->
+                <div class="col-md-4">
+                    <div class="card card-hover border-primary h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-people feature-icon text-primary"></i>
+                            <h4 class="card-title">Clientes</h4>
+                            <p class="card-text">Gestiona tu lista de clientes mágicos</p>
+                            <div class="btn-group-vertical w-100">
+                                <a href="{% url 'agregar_cliente' %}" class="btn btn-outline-primary mb-2">
+                                    <i class="bi bi-person-plus"></i> Agregar
+                                </a>
+                                <a href="{% url 'ver_clientes' %}" class="btn btn-primary">
+                                    <i class="bi bi-list-ul"></i> Ver Todos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Empleados -->
+                <div class="col-md-4">
+                    <div class="card card-hover border-success h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-person-badge feature-icon text-success"></i>
+                            <h4 class="card-title">Empleados</h4>
+                            <p class="card-text">Administra tu equipo de trabajo</p>
+                            <div class="btn-group-vertical w-100">
+                                <a href="{% url 'agregar_empleado' %}" class="btn btn-outline-success mb-2">
+                                    <i class="bi bi-person-plus"></i> Agregar
+                                </a>
+                                <a href="{% url 'ver_empleados' %}" class="btn btn-success">
+                                    <i class="bi bi-list-ul"></i> Ver Todos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Productos -->
+                <div class="col-md-4">
+                    <div class="card card-hover border-warning h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-box-seam feature-icon text-warning"></i>
+                            <h4 class="card-title">Productos</h4>
+                            <p class="card-text">Controla tu inventario mágico</p>
+                            <div class="btn-group-vertical w-100">
+                                <a href="{% url 'agregar_producto' %}" class="btn btn-outline-warning mb-2">
+                                    <i class="bi bi-plus-circle"></i> Agregar
+                                </a>
+                                <a href="{% url 'ver_productos' %}" class="btn btn-warning">
+                                    <i class="bi bi-list-ul"></i> Ver Todos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 mt-2">
+                <!-- Proveedores -->
+                <div class="col-md-4">
+                    <div class="card card-hover border-info h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-truck feature-icon text-info"></i>
+                            <h4 class="card-title">Proveedores</h4>
+                            <p class="card-text">Gestiona tus proveedores</p>
+                            <div class="btn-group-vertical w-100">
+                                <a href="{% url 'agregar_proveedor' %}" class="btn btn-outline-info mb-2">
+                                    <i class="bi bi-plus-circle"></i> Agregar
+                                </a>
+                                <a href="{% url 'ver_proveedores' %}" class="btn btn-info">
+                                    <i class="bi bi-list-ul"></i> Ver Todos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Órdenes -->
+                <div class="col-md-4">
+                    <div class="card card-hover border-danger h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-receipt feature-icon text-danger"></i>
+                            <h4 class="card-title">Órdenes</h4>
+                            <p class="card-text">Maneja tus ventas</p>
+                            <div class="btn-group-vertical w-100">
+                                <a href="{% url 'agregar_orden' %}" class="btn btn-outline-danger mb-2">
+                                    <i class="bi bi-plus-circle"></i> Agregar
+                                </a>
+                                <a href="{% url 'ver_ordenes' %}" class="btn btn-danger">
+                                    <i class="bi bi-list-ul"></i> Ver Todas
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detalles Orden -->
+                <div class="col-md-4">
+                    <div class="card card-hover border-purple h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="bi bi-list-check feature-icon text-purple"></i>
+                            <h4 class="card-title">Detalles Orden</h4>
+                            <p class="card-text">Gestiona detalles de ventas</p>
+                            <div class="btn-group-vertical w-100">
+                                <a href="{% url 'agregar_detalle_orden' %}" class="btn btn-outline-purple mb-2">
+                                    <i class="bi bi-plus-circle"></i> Agregar
+                                </a>
+                                <a href="{% url 'ver_detalles_orden' %}" class="btn btn-purple">
+                                    <i class="bi bi-list-ul"></i> Ver Todos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Información del Sistema -->
+    <section id="info" class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card shadow">
+                        <div class="card-header bg-dark text-white">
+                            <h4 class="mb-0"><i class="bi bi-info-circle"></i> Información del Sistema</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>Características Técnicas</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i> Framework: Django 5.1
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i> Base de datos: SQLite
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i> Frontend: Bootstrap 5
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-check-circle text-success"></i> 6 Tablas completas
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5>Funcionalidades</h5>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">
+                                            <i class="bi bi-star-fill text-warning"></i> CRUD completo
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-star-fill text-warning"></i> Interfaz responsive
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-star-fill text-warning"></i> Navegación intuitiva
+                                        </li>
+                                        <li class="list-group-item">
+                                            <i class="bi bi-star-fill text-warning"></i> Diseño moderno
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="card shadow">
+                        <div class="card-header bg-primary text-white">
+                            <h4 class="mb-0"><i class="bi bi-person"></i> Desarrollador</h4>
+                        </div>
+                        <div class="card-body text-center">
+                            <i class="bi bi-person-circle fs-1 text-primary"></i>
+                            <h5 class="mt-2">Omar Carrasco</h5>
+                            <p class="text-muted">CBTIS 128</p>
+                            <p class="small">Proyecto: Tienda de Magia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>✨ Tienda de Magia</h5>
+                    <p class="mb-0">Sistema de administración completo</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <p class="mb-0">
+                        <strong>&copy; 2025 Tienda de Magia</strong><br>
+                        Desarrollado por Omar Carrasco<br>
+                        CBTIS 128
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

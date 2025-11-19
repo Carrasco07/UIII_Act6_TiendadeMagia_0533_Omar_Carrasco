@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empleados - Tienda de Magia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+    {% include 'app_TiendadeMagia/navbar.html' %}
+
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-primary">
+                <i class="bi bi-person-badge"></i> Lista de Empleados
+            </h1>
+            <a href="{% url 'agregar_empleado' %}" class="btn btn-primary">
+                <i class="bi bi-person-plus"></i> Agregar Empleado
+            </a>
+        </div>
+
+        {% if empleados %}
+        <div class="card shadow">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Email</th>
+                                <th>Puesto</th>
+                                <th>Teléfono</th>
+                                <th>Salario</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for empleado in empleados %}
+                            <tr>
+                                <td>{{ empleado.id }}</td>
+                                <td>{{ empleado.usuario.first_name }} {{ empleado.usuario.last_name }}</td>
+                                <td>{{ empleado.usuario.email }}</td>
+                                <td>
+                                    <span class="badge bg-info">{{ empleado.puesto }}</span>
+                                </td>
+                                <td>{{ empleado.telefono }}</td>
+                                <td>${{ empleado.salario }}</td>
+                                <td>
+                                    <span class="badge {% if empleado.activo %}bg-success{% else %}bg-danger{% endif %}">
+                                        {{ empleado.activo|yesno:"Activo,Inactivo" }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group btn-group-sm">
+                                        <a href="{% url 'actualizar_empleado' empleado.id %}" class="btn btn-warning">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a href="{% url 'borrar_empleado' empleado.id %}" class="btn btn-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="card shadow">
+            <div class="card-body text-center py-5">
+                <i class="bi bi-person-badge display-1 text-muted d-block mb-3"></i>
+                <h5 class="text-muted">No hay empleados registrados</h5>
+                <p class="text-muted">Agrega tu primer empleado para comenzar</p>
+                <a href="{% url 'agregar_empleado' %}" class="btn btn-primary">
+                    <i class="bi bi-person-plus"></i> Agregar Primer Empleado
+                </a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
